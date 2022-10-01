@@ -3,6 +3,8 @@ package advent.of.code.day.one;
 import lombok.AllArgsConstructor;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @AllArgsConstructor
 public class Day1 {
@@ -13,14 +15,14 @@ public class Day1 {
     public int run() throws IOException {
         String read = fileReader.read(DAY_ONE_FILENAME);
 
-        String[] split = read.split("\n");
+        List<Integer> split = Arrays.stream(read.split("\n"))
+                .map(Integer::parseInt)
+                .toList();
 
-        String before = "1000000000";
+        int before = 1000000000;
         int numberOfDepthIncreases = 0;
-        for (String next: split) {
-            int beforeInt = Integer.parseInt(before);
-            int nextInt = Integer.parseInt(next);
-            if(beforeInt < nextInt) {
+        for (int next: split) {
+            if(before < next) {
                 numberOfDepthIncreases++;
             }
             before = next;
