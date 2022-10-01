@@ -1,4 +1,4 @@
-package advent.of.code.day1;
+package advent.of.code.day.one;
 
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -59,6 +58,16 @@ class Day1Test {
         int expected = day1.run();
 
         assertThat(expected).isEqualTo(2);
+    }
+
+    @Test
+    @SneakyThrows
+    void shouldReturn7_whenTestcaseOfWebsiteIsUsed() {
+        when(resourceFileReader.read(any())).thenReturn("199\n200\n208\n210\n200\n207\n240\n269\n260\n263");
+
+        int expected = day1.run();
+
+        assertThat(expected).isEqualTo(7);
     }
 
 

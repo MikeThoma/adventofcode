@@ -1,4 +1,4 @@
-package advent.of.code.day1;
+package advent.of.code.day.one;
 
 import com.google.common.io.Resources;
 

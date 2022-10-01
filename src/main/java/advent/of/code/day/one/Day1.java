@@ -1,4 +1,4 @@
-package advent.of.code.day1;
+package advent.of.code.day.one;
 
 import lombok.AllArgsConstructor;
 
@@ -25,6 +25,8 @@ public class Day1 {
             }
             before = next;
         }
+
+        System.out.println("Number of depth increases: " + numberOfDepthIncreases);
         return numberOfDepthIncreases;
     }
 
