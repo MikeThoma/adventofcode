@@ -10,28 +10,19 @@ import java.util.List;
 public class Day1 {
     private static final String DAY_ONE_FILENAME = "day_1.txt";
 
-    ResourceFileReader fileReader;
+    private final ResourceFileReader fileReader;
+    private final ListElementComparator comparator;
 
     public int run() throws IOException {
         String read = fileReader.read(DAY_ONE_FILENAME);
 
-        List<Integer> split = Arrays.stream(read.split("\n"))
+        Integer[] split = Arrays.stream(read.split("\n"))
                 .map(Integer::parseInt)
-                .toList();
+                .toList()
+                .toArray(new Integer[0]);
 
-        int before = 1000000000;
-        int numberOfDepthIncreases = 0;
-        for (int next: split) {
-            if(before < next) {
-                numberOfDepthIncreases++;
-            }
-            before = next;
-        }
-
-        System.out.println("Number of depth increases: " + numberOfDepthIncreases);
-        return numberOfDepthIncreases;
+        return comparator.compare(split);
     }
-
 
 
 }

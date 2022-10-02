@@ -9,16 +9,16 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class Day1Test {
+    private final ResourceFileReader resourceFileReader = mock(ResourceFileReader.class);
 
-    @Mock
-    private ResourceFileReader resourceFileReader;
+    private final ListElementComparator comparator = new SingleListElementComparator();
 
-    @InjectMocks
-    private Day1 day1;
+    private final Day1 day1 = new Day1(resourceFileReader, comparator);
 
     @Test
     @SneakyThrows
